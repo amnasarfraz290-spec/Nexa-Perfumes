@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Nexa Journal | Nexa</title>
+  <meta name="description" content="Guides and stories about wearing and choosing luxury fragrance.">
+  <meta name="theme-color" content="#0B0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/store.js"></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ PAGE LOADER ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <span class="loader__logo">Nexa</span>
+    <span class="loader__bar"></span>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="logo" aria-label="Nexa home">Nexa</a>
+
+      <nav class="navbar__links" aria-label="Main">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="blogs.html" class="nav-link is-active" aria-current="page">Blogs</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+
+      <a href="index.html#collections" class="btn btn--gradient btn--sm navbar__cta">Shop Collection</a>
+
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile slide-in panel -->
+  <div class="scrim" id="scrim"></div>
+  <aside class="mobile-panel" id="mobile-panel" aria-label="Mobile menu" aria-hidden="true">
+    <a href="index.html" class="logo" aria-label="Nexa home">Nexa</a>
+    <nav class="mobile-panel__links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="blogs.html" class="nav-link is-active" aria-current="page">Blogs</a>
+      <a href="contact.html" class="nav-link">Contact Us</a>
+    </nav>
+    <a href="index.html#collections" class="btn btn--gradient">Shop Collection</a>
+  </aside>
+
+  
+
+  <main id="main">
+    <section class="page-hero">
+      <p class="page-hero__script">The Nexa Journal</p>
+      <h1>Stories, Guides and Scent Notes</h1>
+      <p>Simple advice on wearing, choosing and keeping your fragrances.</p>
+    </section>
+    <section class="section blog-page__grid" style="padding-top:var(--s-5)">
+      <div class="container"><div class="blog__grid" id="blog-list"></div></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="logo" aria-label="Nexa home">Nexa</a>
+        <p data-cms="footer.tagline">Luxury fragrances crafted for him and her.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.6 2.2 4.1 5 4.3"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l14 16M19 4L5 20"/></svg></a>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-label="Footer">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+
+      <div class="footer__col">
+        <h3>Contact</h3>
+        <p data-cms="contact.email">hello@nexaparfums.com</p>
+        <p data-cms="contact.phone">+00 000 000 0000</p>
+        <p data-cms="contact.address">Your Street, Your City</p>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year">2026</span> Nexa. All rights reserved. <a class="footer__admin" href="admin.html">Admin</a></p>
+    </div>
+  </footer>
+
+  <dialog class="modal modal--article" id="blog-modal" aria-labelledby="blog-modal-title">
+    <button class="modal__close" id="blog-modal-close" aria-label="Close article">&times;</button>
+    <img id="blog-modal-img" src="" alt="" width="600" height="400">
+    <div class="article"><time id="blog-modal-date"></time><h3 id="blog-modal-title"></h3><div id="blog-modal-body"></div></div>
+  </dialog>
+
+  <button class="to-top" id="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

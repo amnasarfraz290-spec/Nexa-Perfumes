@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-no-theme>
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin | Nexa</title><meta name="robots" content="noindex">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="js/store.js"></script>
+</head>
+<body>
+<div class="adm" id="adm" >
+  <section class="adm-login" id="adm-login">
+    <form class="adm-login__card" id="adm-login-form">
+      <span class="adm-logo">Nexa</span>
+      <h1>Admin sign in</h1>
+      <div class="adm-field" style="margin:0"><label for="adm-user">Username</label><input id="adm-user" type="text" autocomplete="username"></div>
+      <div class="adm-field" style="margin:0"><label for="adm-pass">Password</label><input id="adm-pass" type="password" autocomplete="current-password"></div>
+      <p class="adm-hint" id="adm-login-msg" role="alert"></p>
+      <button class="adm-btn adm-btn--primary" type="submit">Sign in</button>
+      <a class="adm-hint" href="index.html">Back to website</a>
+    </form>
+  </section>
+
+  <div class="adm-app" id="adm-app" hidden>
+    <aside class="adm-side">
+      <span class="adm-logo">Nexa</span>
+      <nav class="adm-nav" aria-label="Admin sections">
+        <button data-pane="products" class="is-active">Products</button>
+        <button data-pane="blogs">Blog Posts</button>
+        <button data-pane="reviews">Testimonials</button>
+        <button data-pane="text">Site Text</button>
+        <button data-pane="theme">Theme &amp; Style</button>
+        <button data-pane="backup">Backup &amp; Security</button>
+      </nav>
+      <div class="adm-side__foot">
+        <a class="adm-btn adm-btn--sm" href="index.html">View website</a>
+        <button class="adm-btn adm-btn--sm" id="adm-logout" type="button">Sign out</button>
+      </div>
+    </aside>
+
+    <main class="adm-main">
+      <section class="adm-pane" id="pane-products">
+        <div class="adm-head"><div><h2>Products</h2><p>Add, edit or remove perfumes in each collection.</p></div><button class="adm-btn adm-btn--primary" id="adm-add-product" type="button">Add product</button></div>
+        <div class="adm-seg"><button type="button" data-cat="gents" class="is-active">Gents</button><button type="button" data-cat="ladies">Ladies</button></div>
+        <div class="adm-list" id="adm-products"></div>
+      </section>
+
+      <section class="adm-pane" id="pane-blogs" hidden>
+        <div class="adm-head"><div><h2>Blog Posts</h2><p>The newest three appear on the home page.</p></div><button class="adm-btn adm-btn--primary" id="adm-add-blog" type="button">Add post</button></div>
+        <div class="adm-list" id="adm-blogs"></div>
+      </section>
+
+      <section class="adm-pane" id="pane-reviews" hidden>
+        <div class="adm-head"><div><h2>Testimonials</h2><p>Customer reviews shown in the home page carousel.</p></div><button class="adm-btn adm-btn--primary" id="adm-add-review" type="button">Add review</button></div>
+        <div class="adm-list" id="adm-reviews"></div>
+      </section>
+
+      <section class="adm-pane" id="pane-text" hidden>
+        <div class="adm-head"><div><h2>Site Text</h2><p>Headlines, spotlight and contact details.</p></div></div>
+        <form class="adm-card" id="adm-text-form">
+          <div id="adm-text-fields"></div>
+          <div class="adm-actions"><button class="adm-btn adm-btn--primary" type="submit">Save text</button><button class="adm-btn" type="button" id="adm-text-reset">Reset to original</button></div>
+        </form>
+      </section>
+
+      <section class="adm-pane" id="pane-theme" hidden>
+        <div class="adm-head"><div><h2>Theme &amp; Style</h2><p>Changes save automatically and show on your website.</p></div><button class="adm-btn" id="adm-theme-reset" type="button">Reset theme</button></div>
+
+        <div class="adm-card"><h3>Preview</h3><div class="pv" id="adm-pv">
+          <div class="pv__head"><span class="pv__logo">Nexa</span><span class="pv__links"><span>Home</span><span>Blogs</span><span>Contact Us</span></span></div>
+          <div class="pv__body"><h4>Wear Your Signature.</h4><p>Luxury fragrances crafted for him and her. This is how your headings, body text and buttons will look.</p><span class="pv__btn">Shop Collection</span></div>
+          <div class="pv__foot"><span>&copy; Nexa</span><span>Home &middot; Blogs &middot; Contact Us</span></div>
+        </div></div>
+
+        <div class="adm-card"><h3>Ready-made themes</h3><div class="adm-presets" id="adm-presets"></div></div>
+
+        <div class="adm-card"><h3>Colors</h3><div class="adm-colors">
+          <div class="adm-color"><label class="adm-label" for="c-bg">Background</label><input type="color" id="c-bg" data-color="bg"></div>
+          <div class="adm-color"><label class="adm-label" for="c-text">Text</label><input type="color" id="c-text" data-color="text"></div>
+          <div class="adm-color"><label class="adm-label" for="c-pink">Accent 1 (pink)</label><input type="color" id="c-pink" data-color="pink"></div>
+          <div class="adm-color"><label class="adm-label" for="c-blue">Accent 2 (blue)</label><input type="color" id="c-blue" data-color="blue"></div>
+        </div></div>
+
+        <div class="adm-card"><h3>Text style and size</h3>
+          <div class="adm-row">
+            <div class="adm-field"><label for="th-headingFont">Headings</label><select id="th-headingFont"></select></div>
+            <div class="adm-field"><label for="th-bodyFont">Body text</label><select id="th-bodyFont"></select></div>
+            <div class="adm-field"><label for="th-scriptFont">Logo and hero handwriting</label><select id="th-scriptFont"></select></div>
+          </div>
+          <div class="adm-field"><label for="th-scale">Text size</label><div class="adm-range"><input type="range" id="th-scale" min="85" max="125" step="5"><output id="th-scale-out" for="th-scale">100%</output></div></div>
+        </div>
+
+        <div class="adm-card"><h3>Header style</h3><div class="adm-choices" id="adm-headers"></div></div>
+        <div class="adm-card"><h3>Footer style</h3><div class="adm-choices" id="adm-footers"></div></div>
+      </section>
+
+      <section class="adm-pane" id="pane-backup" hidden>
+        <div class="adm-head"><div><h2>Backup &amp; Security</h2><p>Your changes are stored in this browser. Download a backup to keep them safe.</p></div></div>
+        <div class="adm-card"><h3>Backup</h3>
+          <div class="adm-actions">
+            <button class="adm-btn adm-btn--primary" id="adm-export" type="button">Download backup</button>
+            <label class="adm-btn" for="adm-import">Restore from backup</label><input type="file" id="adm-import" accept="application/json" hidden>
+            <button class="adm-btn adm-btn--danger" id="adm-reset-all" type="button">Reset everything</button>
+          </div>
+        </div>
+        <form class="adm-card" id="adm-pass-form"><h3>Change admin login</h3>
+          <p class="adm-hint" style="margin-bottom:1rem">Signed in as <strong id="adm-current-user"></strong>. Leave a field empty to keep it as it is.</p>
+          <div class="adm-row">
+            <div class="adm-field"><label for="adm-newuser">New username</label><input type="text" id="adm-newuser" autocomplete="off"></div>
+            <div class="adm-field"><label for="adm-newpass">New password (6 or more characters)</label><input type="password" id="adm-newpass" autocomplete="new-password"></div>
+          </div>
+          <div class="adm-field"><label for="adm-curpass">Current password (to confirm)</label><input type="password" id="adm-curpass" autocomplete="current-password"></div>
+          <button class="adm-btn adm-btn--primary" type="submit">Save login</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="adm-dialog" id="adm-dialog"><form id="adm-editor" novalidate></form></dialog>
+  <div class="adm-toast" id="adm-toast" role="status" aria-live="polite"></div>
+</div>
+<script src="js/admin.js"></script>
+</body>
+</html>

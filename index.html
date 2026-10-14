@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nexa | Luxury Perfumes for Him and Her</title>
+  <meta name="description" content="Nexa is a modern luxury perfume house. Discover signature fragrances for gents and ladies.">
+  <meta name="theme-color" content="#0B0B0F">
+
+  <!-- Fonts: Great Vibes (script), Playfair Display (headings), Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheet: every future page (blogs.html, contact.html) links this same file -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Loads saved theme + content from the admin panel before the page paints -->
+  <script src="js/store.js"></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ PAGE LOADER ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <span class="loader__logo">Nexa</span>
+    <span class="loader__bar"></span>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="logo" aria-label="Nexa home">Nexa</a>
+
+      <nav class="navbar__links" aria-label="Main">
+        <a href="index.html" class="nav-link is-active" aria-current="page">Home</a>
+        <a href="blogs.html" class="nav-link">Blogs</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+
+      <a href="#collections" class="btn btn--gradient btn--sm navbar__cta">Shop Collection</a>
+
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile slide-in panel -->
+  <div class="scrim" id="scrim"></div>
+  <aside class="mobile-panel" id="mobile-panel" aria-label="Mobile menu" aria-hidden="true">
+    <a href="index.html" class="logo" aria-label="Nexa home">Nexa</a>
+    <nav class="mobile-panel__links">
+      <a href="index.html" class="nav-link is-active">Home</a>
+      <a href="blogs.html" class="nav-link">Blogs</a>
+      <a href="contact.html" class="nav-link">Contact Us</a>
+    </nav>
+    <a href="#collections" class="btn btn--gradient">Shop Collection</a>
+  </aside>
+
+  <main id="main">
+
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__glow hero__glow--pink"></div>
+        <div class="hero__glow hero__glow--blue"></div>
+        <div class="hero__mist"></div>
+        <canvas id="particles"></canvas>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__text" data-parallax="0.15">
+          <p class="hero__kicker anim-in" style="--d:.2s" data-cms="hero.kicker">Nexa Parfums</p>
+          <h1 class="hero__title anim-in" style="--d:.4s" data-cms="hero.title">Wear Your Signature.</h1>
+          <p class="hero__sub anim-in" style="--d:.65s" data-cms="hero.sub">Luxury fragrances crafted for him and her.</p>
+          <div class="hero__actions anim-in" style="--d:.9s">
+            <a href="#collections" class="btn btn--gradient">Explore Collections</a>
+            <a href="#story" class="btn btn--outline">Our Story</a>
+          </div>
+        </div>
+
+        <div class="hero__visual" data-parallax="-0.08">
+          <div class="hero__halo" aria-hidden="true"></div>
+          <!-- REPLACE: images/hero-bottle.svg with your hero bottle photo (transparent PNG/WebP) -->
+          <img class="hero__bottle" src="images/hero-bottle.svg" alt="Nexa perfume bottles for gents and ladies" width="520" height="500" fetchpriority="high">
+        </div>
+      </div>
+
+      <a href="#collections" class="scroll-indicator" aria-label="Scroll down to collections">
+        <span class="scroll-indicator__mouse"><span></span></span>
+      </a>
+    </section>
+
+    <!-- ============ 2. COLLECTIONS ============ -->
+    <section class="section collections" id="collections" data-theme="gents">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title">Our Collections</h2>
+          <span class="deco-line" aria-hidden="true"></span>
+          <p class="section__lead">Two houses, one standard. Choose the scent that feels like you.</p>
+        </header>
+
+        <div class="tabs" id="tabs" role="tablist" aria-label="Collection" data-active="gents">
+          <span class="tabs__pill" aria-hidden="true"></span>
+          <button class="tabs__btn is-active" role="tab" id="tab-gents" aria-selected="true" aria-controls="grid" data-tab="gents">Gents</button>
+          <button class="tabs__btn" role="tab" id="tab-ladies" aria-selected="false" aria-controls="grid" data-tab="ladies" tabindex="-1">Ladies</button>
+        </div>
+
+        <!-- Product cards are rendered by js/main.js from the PRODUCTS list -->
+        <div class="grid" id="grid" role="tabpanel" aria-labelledby="tab-gents"></div>
+        <noscript><p class="section__lead">Please enable JavaScript to browse the collection.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ============ 3. FEATURED SPOTLIGHT ============ -->
+    <section class="section spotlight" id="story">
+      <div class="container spotlight__inner">
+        <div class="spotlight__visual reveal">
+          <div class="spotlight__halo" aria-hidden="true"></div>
+          <!-- REPLACE: images/spotlight-bottle.svg with your best-seller photo -->
+          <img src="images/spotlight-bottle.svg" alt="Nexa Noir perfume bottle" width="300" height="440" loading="lazy">
+        </div>
+
+        <div class="spotlight__text reveal">
+          <span class="badge">Best Seller</span>
+          <h2 class="section__title" data-cms="spotlight.name">Nexa Noir</h2>
+          <span class="deco-line deco-line--left" aria-hidden="true"></span>
+          <p data-cms="spotlight.desc">Dark, warm and quietly confident. Noir opens with a spark of pepper, settles into smooth cedar, and lingers on amber long after you have left the room.</p>
+
+          <dl class="notes">
+            <div><dt>Top</dt><dd data-cms="spotlight.top">Black pepper, bergamot</dd></div>
+            <div><dt>Heart</dt><dd data-cms="spotlight.heart">Cedarwood, violet leaf</dd></div>
+            <div><dt>Base</dt><dd data-cms="spotlight.base">Amber, tonka bean, musk</dd></div>
+          </dl>
+
+          <a href="#collections" class="btn btn--gradient">Shop Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. WHY NEXA ============ -->
+    <section class="section why">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title">Why Choose Nexa</h2>
+          <span class="deco-line" aria-hidden="true"></span>
+        </header>
+
+        <div class="why__grid">
+          <article class="glass why__card reveal">
+            <svg class="why__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M24 12v12l8 5"/></svg>
+            <h3>Long-Lasting Scent</h3>
+            <p>High-concentration oils that stay with you from morning to midnight.</p>
+          </article>
+          <article class="glass why__card reveal">
+            <svg class="why__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 6l6 12 13 2-9.5 9 2.5 13L24 36l-12 6 2.5-13L5 20l13-2z"/></svg>
+            <h3>Premium Ingredients</h3>
+            <p>Rare woods, absolutes and florals, sourced from trusted growers.</p>
+          </article>
+          <article class="glass why__card reveal">
+            <svg class="why__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 41S7 31 7 18a9 9 0 0 1 17-4 9 9 0 0 1 17 4c0 13-17 23-17 23z"/></svg>
+            <h3>Cruelty-Free</h3>
+            <p>Never tested on animals. Kind to skin, and kind to the world.</p>
+          </article>
+          <article class="glass why__card reveal">
+            <svg class="why__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="20" width="34" height="22" rx="2"/><path d="M5 14h38v6H5zM24 14v28"/><path d="M24 14c-3-8-12-8-12-3s9 3 12 3zm0 0c3-8 12-8 12-3s-9 3-12 3z"/></svg>
+            <h3>Gift-Ready Packaging</h3>
+            <p>A keepsake box with ribbon, ready to hand over the moment it arrives.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. TESTIMONIALS ============ -->
+    <section class="section testimonials">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title">Words From Our Clients</h2>
+          <span class="deco-line" aria-hidden="true"></span>
+        </header>
+
+        <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Customer reviews">
+          <div class="carousel__track" id="carousel-track">
+            <figure class="slide glass">
+              <div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>"Nexa Noir is the first fragrance people ask me about. It lasts through a full day at work and still smells rich at dinner."</blockquote>
+              <figcaption>Daniel R.<span>Nexa Noir</span></figcaption>
+            </figure>
+            <figure class="slide glass">
+              <div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>"Rosé Muse feels soft and luxurious without being heavy. The bottle looks beautiful on my dresser, too."</blockquote>
+              <figcaption>Amira K.<span>Nexa Rosé Muse</span></figcaption>
+            </figure>
+            <figure class="slide glass">
+              <div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>"I bought a set as a gift and the packaging was stunning. My sister has not stopped wearing Velvet Bloom."</blockquote>
+              <figcaption>Sophie L.<span>Nexa Velvet Bloom</span></figcaption>
+            </figure>
+          </div>
+          <div class="carousel__dots" id="carousel-dots" role="tablist" aria-label="Choose review"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. BLOG TEASER ============ -->
+    <section class="section blog">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title">Latest From the Blog</h2>
+          <span class="deco-line" aria-hidden="true"></span>
+        </header>
+
+        <div class="blog__grid" id="blog-teaser">
+          <article class="post reveal">
+            <a href="blogs.html" class="post__img"><img src="images/blog-1.svg" alt="Placeholder cover for the article on applying perfume" width="600" height="400" loading="lazy"></a>
+            <div class="post__body">
+              <time datetime="2026-09-28">28 Sep 2026</time>
+              <h3><a href="blogs.html">How to Apply Perfume So It Lasts All Day</a></h3>
+              <a href="blogs.html" class="post__more">Read More</a>
+            </div>
+          </article>
+          <article class="post reveal">
+            <a href="blogs.html" class="post__img"><img src="images/blog-2.svg" alt="Placeholder cover for the article on fragrance families" width="600" height="400" loading="lazy"></a>
+            <div class="post__body">
+              <time datetime="2026-09-14">14 Sep 2026</time>
+              <h3><a href="blogs.html">Woody, Floral or Fresh? Find Your Fragrance Family</a></h3>
+              <a href="blogs.html" class="post__more">Read More</a>
+            </div>
+          </article>
+          <article class="post reveal">
+            <a href="blogs.html" class="post__img"><img src="images/blog-3.svg" alt="Placeholder cover for the article on perfume gifts" width="600" height="400" loading="lazy"></a>
+            <div class="post__body">
+              <time datetime="2026-08-30">30 Aug 2026</time>
+              <h3><a href="blogs.html">A Simple Guide to Choosing a Perfume Gift</a></h3>
+              <a href="blogs.html" class="post__more">Read More</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. NEWSLETTER ============ -->
+    <section class="newsletter">
+      <div class="container">
+        <div class="newsletter__box">
+          <h2 class="section__title">Join the Nexa List</h2>
+          <p>New launches and private offers, straight to your inbox.</p>
+
+          <form class="newsletter__form" id="newsletter-form" novalidate>
+            <label class="sr-only" for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email" required aria-describedby="form-msg">
+            <button type="submit" class="btn btn--gradient">Subscribe</button>
+          </form>
+          <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ 8. FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="logo" aria-label="Nexa home">Nexa</a>
+        <p data-cms="footer.tagline">Luxury fragrances crafted for him and her.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.6 2.2 4.1 5 4.3"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l14 16M19 4L5 20"/></svg></a>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-label="Footer">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+
+      <div class="footer__col">
+        <h3>Contact</h3>
+        <p data-cms="contact.email">hello@nexaparfums.com</p>
+        <p data-cms="contact.phone">+00 000 000 0000</p>
+        <p data-cms="contact.address">Your Street, Your City</p>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year">2026</span> Nexa. All rights reserved. <a class="footer__admin" href="admin.html">Admin</a></p>
+    </div>
+  </footer>
+
+  <!-- Product details dialog -->
+  <dialog class="modal" id="modal" aria-labelledby="modal-title">
+    <button class="modal__close" id="modal-close" aria-label="Close details">&times;</button>
+    <div class="modal__body">
+      <img id="modal-img" src="" alt="" width="300" height="440">
+      <div>
+        <h3 id="modal-title"></h3>
+        <p id="modal-notes"></p>
+        <p class="modal__price" id="modal-price"></p>
+        <button class="btn btn--gradient" id="modal-cta">Add to Bag</button>
+      </div>
+    </div>
+  </dialog>
+
+  <button class="to-top" id="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
